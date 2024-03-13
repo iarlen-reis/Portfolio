@@ -7,6 +7,10 @@ body {
   @apply bg-gradient-to-b from-[#011E28] from-25% to-[#050102] to-100% bg-fixed text-white antialiased;
 }
 
+h1, h2, h3, h4 {
+  @apply font-merienda;
+}
+
 .line-effect {
 	color: #FFF;
   position: relative;
