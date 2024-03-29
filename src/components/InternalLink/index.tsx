@@ -18,7 +18,7 @@ export default function InternalLink({
       <Icon
         data-testid="internal-link-icon"
         className={clsx('size-5 transition-all hover:text-white', {
-          'text-white': active,
+          'animate-pulse text-white': active,
           'text-white/60': !active,
         })}
       />
