@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-open-sans)', 'sans-serif'],
+        sans: ['var(--font-roboto-mono)', 'sans-serif'],
         merienda: ['var(--font-merienda)', 'serif'],
       },
     },
