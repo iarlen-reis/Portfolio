@@ -10,9 +10,9 @@ describe('ProjectCard component', () => {
         image="https://github.com/iarlen-reis.png"
         name="Projeto 1"
         deploy="https://github.com/iarlen-reis"
-        startedIn="20 de jan, 2023"
-        finishedIn="03 de fev, 2023"
-        type="Aplicação Web"
+        started="20 de jan, 2023"
+        finished="03 de fev, 2023"
+        type="web"
       />,
     )
   })
