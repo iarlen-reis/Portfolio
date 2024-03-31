@@ -22,13 +22,15 @@ export default function Pagination({
       {pages && (
         <>
           {hasPrevious && (
-            <Link
-              aria-label="Ir para a página anterior"
-              href={`/projetos?page=${Number(page) - 1}${filter && `&filter=${filter}`}`}
-              className="rounded-xl border border-white/60 p-1 transition-all hover:opacity-80"
-            >
-              <ChevronLeft className="size-6" />
-            </Link>
+            <li>
+              <Link
+                aria-label="Ir para a página anterior"
+                href={`/projetos?page=${Number(page) - 1}${filter && `&filter=${filter}`}`}
+                className="rounded-xl border border-white/60 p-1 transition-all hover:opacity-80"
+              >
+                <ChevronLeft className="size-6" />
+              </Link>
+            </li>
           )}
           {pages > 1 && (
             <li
@@ -39,13 +41,15 @@ export default function Pagination({
             </li>
           )}
           {hasNext && (
-            <Link
-              aria-label="Ir para a próxima página"
-              href={`/projetos?page=${Number(page) + 1}${filter && `&filter=${filter}`}`}
-              className="rounded-xl border border-white/60 p-1 transition-all hover:opacity-80"
-            >
-              <ChevronRight className="size-6" />
-            </Link>
+            <li>
+              <Link
+                aria-label="Ir para a próxima página"
+                href={`/projetos?page=${Number(page) + 1}${filter && `&filter=${filter}`}`}
+                className="rounded-xl border border-white/60 p-1 transition-all hover:opacity-80"
+              >
+                <ChevronRight className="size-6" />
+              </Link>
+            </li>
           )}
         </>
       )}
