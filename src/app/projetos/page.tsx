@@ -99,8 +99,8 @@ export default async function ProjectPage({ searchParams }: ParamProps) {
           <li>
             <InternalLink
               icon={Server}
-              href="?filter=back-end"
-              active={searchParams.filter === 'back-end'}
+              href="?filter=backend"
+              active={searchParams.filter === 'backend'}
               aria-label="Link para exibir apenas projetos back-end"
               title="Exibir apenas projetos back-end"
             />
