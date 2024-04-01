@@ -18,6 +18,29 @@ const merienda = Merienda({
 
 export const metadata: Metadata = {
   title: 'Portfolio - Iarlen Reis',
+  openGraph: {
+    type: 'website',
+    locale: 'pt-BR',
+    siteName: 'Iarlen Reis',
+    title: 'Portfolio - Iarlen Reis',
+    url: 'https://www.iarlenreis.com.br',
+    description: 'Portfólio do desenvolvedor Iarlen Reis',
+    images: [
+      {
+        type: 'image/png',
+        username: 'iarlen-reis',
+        url: 'https://www.iarlenreis.com.br/profile.png',
+      },
+    ],
+  },
+  twitter: {
+    creator: '@iarlenzito',
+    card: 'summary_large_image',
+    title: 'Portfolio - Iarlen Reis',
+    site: 'https://www.iarlenreis.com.br',
+    description: 'Portfólio do desenvolvedor Iarlen Reis',
+    images: ['https://www.iarlenreis.com.br/profile.png'],
+  },
   description: 'Portfólio do desenvolvedor Iarlen Reis',
   keywords: [
     'Iarlen Reis',
