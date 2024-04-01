@@ -35,7 +35,7 @@ export default function AboutPage() {
 
   const ageInt = Math.floor(age)
   return (
-    <section className="flex flex-col gap-4 pb-12">
+    <section className="background flex flex-col gap-4 pb-12">
       <h1 className="mt-4 text-2xl md:text-3xl">Sobre mim</h1>
       <div className="flex w-full max-w-[1024px] flex-col gap-3 text-base text-zinc-300 sm:text-lg lg:text-xl">
         <p>

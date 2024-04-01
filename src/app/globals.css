@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 
-body {
+body, .background {
   @apply bg-gradient-to-b from-[#011E28] from-25% to-[#050102] to-100% bg-fixed text-white antialiased min-h-screen;
 }
 

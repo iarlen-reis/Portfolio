@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function Home() {
   return (
-    <section className="flex grid-cols-1 flex-col gap-5 md:grid md:grid-cols-2 md:gap-20">
+    <section className="background flex grid-cols-1 flex-col gap-5 md:grid md:grid-cols-2 md:gap-20">
       <div className="mt-5 flex items-center justify-center md:mt-14 md:items-start xl:mt-20">
         <Image
           priority
