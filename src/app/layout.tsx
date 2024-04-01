@@ -72,7 +72,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={clsx(robotoMono.className, merienda.variable)}>
+      <body
+        className={clsx(
+          'h-full min-h-screen',
+          robotoMono.className,
+          merienda.variable,
+        )}
+      >
         <Header />
         <main className="container mx-auto min-h-screen px-3">{children}</main>
         <Footer />
