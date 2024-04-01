@@ -1,4 +1,5 @@
 import { Merienda, Roboto_Mono as RobotoMono } from 'next/font/google'
+import Footer from '@/components/Footer'
 import Header from '@/components/header'
 import type { Metadata } from 'next'
 import clsx from 'clsx'
@@ -73,7 +74,8 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={clsx(robotoMono.className, merienda.variable)}>
         <Header />
-        <main className="container mx-auto px-3">{children}</main>
+        <main className="container mx-auto min-h-screen px-3">{children}</main>
+        <Footer />
       </body>
     </html>
   )
