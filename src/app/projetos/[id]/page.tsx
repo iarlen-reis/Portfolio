@@ -4,6 +4,7 @@ import { api } from '@/utils/api'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { convertDate } from '@/utils/convertDate'
 
 interface ParamProps {
   params: {
@@ -13,7 +14,7 @@ interface ParamProps {
 
 interface ProjectProps {
   id: string
-  name: string
+  title: string
   type: string
   image: string
   deploy: string
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: ParamProps) {
   const project = response.data
 
   return {
-    title: `${project.name} - Iarlen Reis`,
+    title: `${project.title} - Iarlen Reis`,
     description: project.description,
     keywords: project.technologies,
   }
@@ -52,9 +53,9 @@ export default async function ProjectDetailPage({ params }: ParamProps) {
           <ChevronLeft className="size-6" />
         </Link>
         <div className=" flex flex-col gap-1.5">
-          <h1 className="text-2xl">{project.name}</h1>
+          <h1 className="text-2xl">{project.title}</h1>
           <p className="text-sm text-zinc-300">
-            {project.started} - {project.finished}
+            {convertDate(project.started)} - {convertDate(project.finished)}
           </p>
         </div>
       </div>
@@ -63,7 +64,7 @@ export default async function ProjectDetailPage({ params }: ParamProps) {
         width={600}
         height={250}
         src={project.image}
-        alt={`Imagem do projeto ${project.name}`}
+        alt={`Imagem do projeto ${project.title}`}
         className="w-full max-w-[500px] rounded-md sm:max-w-[600px]"
       />
       <ul className="flex items-center gap-3">
