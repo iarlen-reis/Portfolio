@@ -15,10 +15,6 @@ ul, li {
   @apply list-none;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 .line-effect {
 	color: #FFF;
   position: relative;
