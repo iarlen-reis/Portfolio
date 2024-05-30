@@ -83,8 +83,6 @@ export default async function ProjectPage({ searchParams }: ParamProps) {
 
   const data = response.data
 
-  console.log(data)
-
   return (
     <section className="background mt-4 flex min-h-screen flex-col gap-10 pb-12">
       <div className="flex flex-col">
