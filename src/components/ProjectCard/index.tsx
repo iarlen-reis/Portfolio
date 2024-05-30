@@ -8,11 +8,12 @@ import {
   LaptopMinimalIcon,
   Rocket,
 } from 'lucide-react'
+import { convertDate } from '@/utils/convertDate'
 
 interface ProjectCardProps {
   id: string
   image: string
-  name: string
+  title: string
   deploy: string
   started: string
   finished: string
@@ -22,7 +23,7 @@ interface ProjectCardProps {
 export default function ProjectCard({
   id,
   image,
-  name,
+  title,
   deploy,
   started,
   finished,
@@ -36,11 +37,11 @@ export default function ProjectCard({
       <div className="h-[200px] w-full overflow-hidden">
         <Image
           src={image}
-          alt={`Imagem do projeto ${name}`}
+          alt={`Imagem do projeto ${title}`}
           width={398}
           height={200}
           priority
-          className="h-full w-full overflow-hidden object-top transition-all hover:scale-110"
+          className="h-full w-full overflow-hidden object-cover transition-all hover:scale-110"
         />
       </div>
       <div className="mt-2 flex flex-col gap-3 px-3">
@@ -48,9 +49,9 @@ export default function ProjectCard({
           href={`/projetos/${id}`}
           className="w-fit font-merienda text-xl transition-opacity hover:opacity-80 md:text-2xl"
           data-testid="project-name"
-          aria-label={`Link para ver detalhes do projeto ${name}`}
+          aria-label={`Link para ver detalhes do projeto ${title}`}
         >
-          {name}
+          {title}
         </Link>
         <div className="flex flex-col gap-2">
           <p
@@ -58,7 +59,7 @@ export default function ProjectCard({
             data-testid="project-date"
           >
             <CalendarDays className="size-4" />
-            {started} - {finished}
+            {convertDate(started)} - {convertDate(finished)}
           </p>
           <p
             className="flex items-center gap-2 text-sm"
@@ -72,7 +73,7 @@ export default function ProjectCard({
           <Link
             href={`/projetos/${id}`}
             data-testid="project-details"
-            aria-label={`Link para ver detalhes do projeto ${name}`}
+            aria-label={`Link para ver detalhes do projeto ${title}`}
             className="flex items-center gap-1 rounded bg-blue-600 px-5 py-2 text-sm transition-opacity hover:opacity-80"
           >
             <BadgeInfo className="size-4" />
@@ -83,7 +84,7 @@ export default function ProjectCard({
             target="_blank"
             rel="noreferrer"
             data-testid="project-deploy"
-            aria-label={`Link para deploy do projeto ${name}`}
+            aria-label={`Link para deploy do projeto ${title}`}
             className="flex w-[116px] items-center gap-2 rounded border border-white/30 bg-transparent px-5 py-2 text-sm transition-all duration-300 hover:bg-blue-600"
           >
             <Rocket className="size-4" />
