@@ -77,7 +77,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body
         className={clsx(
-          'h-full min-h-screen bg-gradient-to-b from-[#011E28] from-25% to-[#050102] to-100%',
+          'h-full min-h-screen bg-gradient-to-b from-[#011E28] from-25% to-[#050102] to-100% text-white',
           robotoMono.className,
           merienda.variable,
         )}
