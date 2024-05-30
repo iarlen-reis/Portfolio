@@ -1,21 +1,20 @@
-import { LaptopMinimalIcon, SmartphoneIcon, Server } from 'lucide-react'
+import {
+  LaptopMinimalIcon,
+  SmartphoneIcon,
+  Server,
+  ChevronLeft,
+  ChevronRight,
+} from 'lucide-react'
 import InternalLink from '@/components/InternalLink'
 import ProjectCard from '@/components/ProjectCard'
-import Pagination from '@/components/Pagination'
 import { api } from '@/utils/api'
 import { Metadata } from 'next'
 import React from 'react'
-
-interface PaginationProps {
-  total: number
-  pages: number
-  hasNext: boolean
-  hasPrevious: boolean
-}
+import Link from 'next/link'
 
 interface ProjectProps {
   id: string
-  name: string
+  title: string
   type: string
   image: string
   deploy: string
@@ -23,9 +22,23 @@ interface ProjectProps {
   finished: string
 }
 
-interface ProjectWithPaginationProps {
-  projects: ProjectProps[]
-  pagination: PaginationProps
+interface PaginationProps {
+  pages: number
+  next: boolean
+  prev: boolean
+}
+
+interface PaginationMetaProps {
+  current_page: number
+  from: number
+  last_page: number
+  total: number
+}
+
+export interface ProjectPaginationProps {
+  links: PaginationProps
+  meta: PaginationMetaProps
+  data: ProjectProps[]
 }
 
 interface ParamProps {
@@ -54,6 +67,9 @@ export const metadata: Metadata = {
     'Desenvolvedor',
     'HTML',
     'CSS',
+    'PHP',
+    'Laravel',
+    'Livewire',
   ],
 }
 
@@ -61,11 +77,13 @@ export default async function ProjectPage({ searchParams }: ParamProps) {
   const page = searchParams.page ?? 1
   const filter = searchParams.filter || ''
 
-  const response = await api.get<ProjectWithPaginationProps>(
+  const response = await api.get<ProjectPaginationProps>(
     `/projects?page=${page}&filter=${filter}`,
   )
 
   const data = response.data
+
+  console.log(data)
 
   return (
     <section className="background mt-4 flex min-h-screen flex-col gap-10 pb-12">
@@ -100,19 +118,50 @@ export default async function ProjectPage({ searchParams }: ParamProps) {
             <InternalLink
               icon={Server}
               href="?filter=backend"
-              active={searchParams.filter === 'backend'}
+              active={searchParams.filter === 'back-end'}
               aria-label="Link para exibir apenas projetos back-end"
               title="Exibir apenas projetos back-end"
             />
           </li>
         </ul>
         <ul className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {data.projects.map((project) => (
+          {data.data.map((project) => (
             <ProjectCard {...project} key={project.id} />
           ))}
         </ul>
       </div>
-      <Pagination {...data.pagination} page={page} filter={filter} />
+      <ul className="flex items-center justify-end gap-2">
+        {data.links.prev && (
+          <li className="rounded-xl border border-white/60 p-1 transition-all hover:opacity-80">
+            <Link
+              aria-label="Ir para a página anterior"
+              href={`/projetos?page=${Number(page) - 1}${filter && `&filter=${filter}`}`}
+            >
+              <ChevronLeft className="size-6" />
+            </Link>
+          </li>
+        )}
+
+        {data.meta.last_page > 1 && (
+          <li
+            aria-label="Página atual"
+            className="rounded-md border border-white/60 p-1 px-2 font-merienda text-sm"
+          >
+            1
+          </li>
+        )}
+
+        {data.links.next && (
+          <li className="rounded-xl border border-white/60 p-1 transition-all hover:opacity-80">
+            <Link
+              aria-label="Ir para a próxima página"
+              href={`/projetos?page=${Number(page) + 1}${filter && `&filter=${filter}`}`}
+            >
+              <ChevronRight className="size-6" />
+            </Link>
+          </li>
+        )}
+      </ul>
     </section>
   )
 }
