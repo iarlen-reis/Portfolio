@@ -84,7 +84,7 @@ export default async function ProjectPage({ searchParams }: ParamProps) {
   const data = response.data
 
   return (
-    <section className="background mt-4 flex min-h-screen flex-col gap-10 pb-12">
+    <section className="mt-4 flex min-h-screen flex-col gap-10 pb-12 text-white">
       <div className="flex flex-col">
         <div className="flex flex-col gap-2">
           <h2 className="text-2xl">Meus projetos</h2>
@@ -115,7 +115,7 @@ export default async function ProjectPage({ searchParams }: ParamProps) {
           <li>
             <InternalLink
               icon={Server}
-              href="?filter=backend"
+              href="?filter=back-end"
               active={searchParams.filter === 'back-end'}
               aria-label="Link para exibir apenas projetos back-end"
               title="Exibir apenas projetos back-end"
@@ -123,9 +123,10 @@ export default async function ProjectPage({ searchParams }: ParamProps) {
           </li>
         </ul>
         <ul className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {data.data.map((project) => (
-            <ProjectCard {...project} key={project.id} />
-          ))}
+          {data.data &&
+            data.data.map((project) => (
+              <ProjectCard {...project} key={project.id} />
+            ))}
         </ul>
       </div>
       <ul className="flex items-center justify-end gap-2">
