@@ -62,6 +62,9 @@ export const metadata: Metadata = {
     'Salvador',
     'Brasil',
     'Bahia',
+    'PHP',
+    'Laravel',
+    'Livewire',
   ],
 }
 
