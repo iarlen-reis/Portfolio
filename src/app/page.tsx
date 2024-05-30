@@ -25,7 +25,7 @@ export default function Home() {
             Iarlen Reis
           </h1>
           <p className="text-lg uppercase leading-relaxed tracking-wide md:mt-2 md:text-xl lg:tracking-wider xl:tracking-widest">
-            Desenvolvedor Front-end
+            Desenvolvedor Full-stack
           </p>
         </div>
         <ul className="flex w-full items-center justify-center gap-5 md:justify-start">
