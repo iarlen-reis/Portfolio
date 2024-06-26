@@ -1,17 +1,17 @@
-'use client'
-import { MenuIcon, XIcon } from 'lucide-react'
-import LogoImage from '/public/logo.png'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-import clsx from 'clsx'
+"use client";
+import { MenuIcon, XIcon } from "lucide-react";
+import LogoImage from "/public/logo.png";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import clsx from "clsx";
 
 export default function Header() {
-  const [isOpenMobile, setIsOpenMobile] = React.useState(false)
+  const [isOpenMobile, setIsOpenMobile] = React.useState(false);
 
   const handleMobileMenu = () => {
-    setIsOpenMobile(!isOpenMobile)
-  }
+    setIsOpenMobile(!isOpenMobile);
+  };
 
   return (
     <>
@@ -32,11 +32,11 @@ export default function Header() {
         <nav className="flex items-center gap-4">
           <ul
             className={clsx(
-              'absolute left-0 z-20 h-screen w-full bg-[#011E28] py-8 pr-4 transition-all duration-500 ease-in md:static md:z-auto md:flex md:h-fit md:w-auto md:items-center md:bg-transparent md:py-0 md:pl-0 md:duration-0',
+              "absolute left-0 z-20 h-screen w-full bg-[#011E28] py-8 pr-4 transition-all duration-500 ease-in md:static md:z-auto md:flex md:h-fit md:w-auto md:items-center md:bg-transparent md:py-0 md:pl-0 md:duration-0",
               {
-                'top-16 z-10 flex flex-col items-center gap-3 md:flex-row':
+                "top-16 z-10 flex flex-col items-center gap-3 md:flex-row":
                   isOpenMobile,
-                'left-[-1080px] top-16 flex flex-col gap-3 text-center md:flex-row':
+                "left-[-1080px] top-16 flex flex-col gap-3 text-center md:flex-row":
                   !isOpenMobile,
               },
             )}
@@ -53,7 +53,7 @@ export default function Header() {
             </li>
             <li onClick={handleMobileMenu}>
               <Link
-                href="/projetos"
+                href="/projetos?filter=web"
                 className="line-effect"
                 data-testid="projects-link"
                 aria-label="Link para a página projetos"
@@ -79,5 +79,5 @@ export default function Header() {
       </header>
       <div className="h-[70px] w-full"></div>
     </>
-  )
+  );
 }
