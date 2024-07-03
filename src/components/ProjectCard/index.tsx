@@ -2,13 +2,9 @@ import { convertType } from '@/utils/convertType'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import {
-  BadgeInfo,
-  CalendarDays,
-  LaptopMinimalIcon,
-  Rocket,
-} from 'lucide-react'
+import { BadgeInfo, CalendarDays, Rocket } from 'lucide-react'
 import { convertDate } from '@/utils/convertDate'
+import { selectIcon } from '@/utils/selectIcon'
 
 interface ProjectCardProps {
   id: string
@@ -29,6 +25,7 @@ export default function ProjectCard({
   finished,
   type,
 }: ProjectCardProps) {
+  const Icon = selectIcon(type)
   return (
     <li
       data-testid="project-card"
@@ -65,7 +62,7 @@ export default function ProjectCard({
             className="flex items-center gap-2 text-sm"
             data-testid="project-type"
           >
-            <LaptopMinimalIcon className="size-4" />
+            <Icon className="size-4" />
             {convertType(type)}
           </p>
         </div>
