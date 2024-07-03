@@ -25,8 +25,8 @@ export default function Header() {
             <Image
               src={LogoImage}
               alt="Imagem de um gato e um texto do lado direito escrito Iarlen Reis."
-              width={140}
-              height={140}
+              width={150}
+              height={500}
               priority
             />
           </Link>
