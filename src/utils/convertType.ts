@@ -1,11 +1,11 @@
 export const convertType = (type: string) => {
   switch (type) {
     case 'web':
-      return 'Aplicação Web'
+      return 'Aplicação web'
     case 'mobile':
-      return 'Aplicação Mobile'
-    case 'backend':
-      return 'Aplicação Back-end'
+      return 'Aplicação mobile'
+    case 'back-end':
+      return 'Aplicação back-end'
     default:
       return type
   }
