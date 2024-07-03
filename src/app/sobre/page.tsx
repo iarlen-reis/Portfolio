@@ -1,4 +1,4 @@
-import { FaJava, FaPython, FaPhp } from 'react-icons/fa6'
+import { FaPhp } from 'react-icons/fa6'
 import IconCard from '@/components/IconCard'
 import {
   TbBrandJavascript,
@@ -61,18 +61,6 @@ export default function AboutPage() {
               icon={TbBrandNodejs}
               color="#27ba36"
               aria-label="Linguagem Nodejs"
-            />
-            <IconCard
-              title="Python"
-              icon={FaPython}
-              color="#3776AB"
-              aria-label="Linguagem Python"
-            />
-            <IconCard
-              title="Java"
-              icon={FaJava}
-              color="#F99916"
-              aria-label="Linguagem Java"
             />
             <IconCard
               title="PHP"
