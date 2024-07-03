@@ -75,7 +75,7 @@ export const metadata: Metadata = {
 
 export default async function ProjectPage({ searchParams }: ParamProps) {
   const page = searchParams.page ?? 1
-  const filter = searchParams.filter || ''
+  const filter = searchParams.filter || 'web'
 
   const response = await api.get<ProjectPaginationProps>(
     `/projects?page=${page}&filter=${filter}`,
