@@ -43,7 +43,7 @@ export default async function ProjectDetailPage({ params }: ParamProps) {
   const project = response.data
 
   return (
-    <div className="mx-auto flex w-full max-w-[600px] flex-col gap-5 pb-12">
+    <div className="mx-auto flex w-full max-w-[700px] flex-col gap-5 pb-12">
       <div className="mt-4 flex items-center gap-3 md:gap-3.5">
         <Link
           href="/projetos"
@@ -59,14 +59,28 @@ export default async function ProjectDetailPage({ params }: ParamProps) {
           </p>
         </div>
       </div>
-      <Image
-        priority
-        width={600}
-        height={250}
-        src={project.image}
-        alt={`Imagem do projeto ${project.title}`}
-        className="w-full max-w-[500px] rounded-md sm:max-w-[600px]"
-      />
+      <div>
+        {project.type === 'mobile' ? (
+          <Image
+            priority
+            width={500}
+            height={300}
+            src={project.image}
+            alt={`Imagem do projeto ${project.title}`}
+            className="rounded-md object-contain"
+          />
+        ) : (
+          <Image
+            priority
+            width={700}
+            height={250}
+            src={project.image}
+            alt={`Imagem do projeto ${project.title}`}
+            className="w-full max-w-[600px] rounded-md sm:max-w-[700px]"
+          />
+        )}
+      </div>
+
       <ul className="flex items-center gap-3">
         <ExternalLink
           icon={GithubIcon}
