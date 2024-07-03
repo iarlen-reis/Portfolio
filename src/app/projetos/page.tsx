@@ -75,7 +75,7 @@ export const metadata: Metadata = {
 
 export default async function ProjectPage({ searchParams }: ParamProps) {
   const page = searchParams.page ?? 1
-  const filter = searchParams.filter || 'web'
+  const filter = searchParams.filter || ''
 
   const response = await api.get<ProjectPaginationProps>(
     `/projects?page=${page}&filter=${filter}`,
@@ -84,7 +84,7 @@ export default async function ProjectPage({ searchParams }: ParamProps) {
   const data = response.data
 
   return (
-    <section className="mt-4 flex min-h-screen flex-col gap-10 pb-12 text-white">
+    <section className="mt-4 flex min-h-screen flex-col pb-12 text-white">
       <div className="flex flex-col">
         <div className="flex flex-col gap-2">
           <h2 className="text-2xl">Meus projetos</h2>
@@ -122,13 +122,20 @@ export default async function ProjectPage({ searchParams }: ParamProps) {
             />
           </li>
         </ul>
-        <ul className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {data.data &&
-            data.data.map((project) => (
-              <ProjectCard {...project} key={project.id} />
-            ))}
-        </ul>
       </div>
+      <div className="mt-6">
+        {filter && (
+          <p className="animate-pulse text-lg text-white/70">
+            Filtrando por: {filter}
+          </p>
+        )}
+      </div>
+      <ul className="mt-4 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {data.data &&
+          data.data.map((project) => (
+            <ProjectCard {...project} key={project.id} />
+          ))}
+      </ul>
       <ul className="flex items-center justify-end gap-2">
         {data.links.prev && (
           <li className="rounded-xl border border-white/60 p-1 transition-all hover:opacity-80">
