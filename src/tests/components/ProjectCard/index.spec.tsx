@@ -8,10 +8,10 @@ describe('ProjectCard component', () => {
       <ProjectCard
         id="1"
         image="https://github.com/iarlen-reis.png"
-        name="Projeto 1"
+        title="Projeto 1"
         deploy="https://github.com/iarlen-reis"
-        started="20 de jan, 2023"
-        finished="03 de fev, 2023"
+        started="2023-01-20"
+        finished="2023-02-03"
         type="web"
       />,
     )
@@ -50,16 +50,16 @@ describe('ProjectCard component', () => {
     )
   })
 
-  it('should have a text with value (20 de jan, 2023 - 03 de fev, 2023) on data-testid (project-date)', () => {
+  it('should have a text with value (19 de jan, 2023 - 02 de fev, 2023) on data-testid (project-date)', () => {
     const projectDate = screen.getByTestId('project-date')
 
-    expect(projectDate).toHaveTextContent('20 de jan, 2023 - 03 de fev, 2023')
+    expect(projectDate).toHaveTextContent('19 de jan, 2023 - 02 de fev, 2023')
   })
 
-  it('should have a text with value (Aplicação Web) on data-testid (project-type)', () => {
+  it('should have a text with value (Aplicação web) on data-testid (project-type)', () => {
     const projectType = screen.getByTestId('project-type')
 
-    expect(projectType).toHaveTextContent('Aplicação Web')
+    expect(projectType).toHaveTextContent('Aplicação web')
   })
 
   it('should have a link with href to (/projetos/1) on data-testid (project-details)', () => {
